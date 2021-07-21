@@ -1,17 +1,11 @@
 import React, { Component } from 'react';
 import { gantt } from 'dhtmlx-gantt';
-import 'dhtmlx-gantt/codebase/dhtmlxgantt.css';
+import 'dhtmlx-gantt/codebase/skins/dhtmlxgantt_material.css';
 import './Gantt.css'
 
 export default class Gantt extends Component {
     componentDidMount(props){
         //super(props);
-        gantt.attachEvent("onBeforeTaskDisplay", function(id, task){
-            if (task.priority == "high"){
-                return true;
-            }
-            return false;
-        });
         const { tasks } = this.props;
         gantt.config.fit_tasks = true;
         gantt.config.scroll_size = 20;
